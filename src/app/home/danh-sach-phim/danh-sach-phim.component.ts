@@ -20,7 +20,6 @@ export class DanhSachPhimComponent implements OnInit {
     const url = 'QuanLyPhim/LayDanhSachPhim?MaNhom=GP09';
     this.phimSer.get(url).subscribe((data:any) => {
       this.danhSachPhim = data;
-      console.log(data);
     })
   }
 }

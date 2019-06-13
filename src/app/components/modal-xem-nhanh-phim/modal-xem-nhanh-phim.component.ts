@@ -16,7 +16,6 @@ export class ModalXemNhanhPhimComponent implements OnInit {
 
   ngOnInit() {
     this.shareStore.shareChiTietPhim.subscribe((data: any) => {
-      console.log(data);
       this.chiTietPhimFromShareStoreService = data;
     })
   }

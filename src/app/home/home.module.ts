@@ -9,7 +9,7 @@ import { HomeMenuComponent } from './home-menu/home-menu.component';
   exports: [HomeComponent ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
   ]
 })
 export class HomeModule { }
