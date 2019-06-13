@@ -10,15 +10,15 @@ export class DanhSachPhimComponent implements OnInit {
 
   danhSachPhim = [];
 
-  constructor(private phimSer: PhimService) { }
+  constructor(private phimService: PhimService) { }
 
   ngOnInit() {
-    this.getDSPhim();
+    this.getDSPhimAPI();
   }
 
-  getDSPhim() {
+  getDSPhimAPI() {
     const url = 'QuanLyPhim/LayDanhSachPhim?MaNhom=GP09';
-    this.phimSer.get(url).subscribe((data:any) => {
+    this.phimService.get(url).subscribe((data:any) => {
       this.danhSachPhim = data;
     })
   }
