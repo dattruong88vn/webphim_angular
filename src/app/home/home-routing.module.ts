@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
+import { TrangChuComponent } from './trang-chu/trang-chu.component';
 
 const routes: Routes = [
-  { path: "", component: HomeComponent, children: [
-    { path: "", loadChildren: "./trang-chu/trang-chu.module#TrangChuModule"},
-    { path: "danh-sach-phim", loadChildren: "./danh-sach-phim/danh-sach-phim.module#DanhSachPhimModule"},
-  ]},
+
+  { path: "home", component: HomeComponent, children: [
+      { path: "", component: TrangChuComponent},
+      { path: "danh-sach-phim", loadChildren: "./danh-sach-phim/danh-sach-phim.module#DanhSachPhimModule" },
+      
+    ]
+  },
 
 ];
 

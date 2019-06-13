@@ -11,7 +11,7 @@ export class ChiTietSinglePhimComponent implements OnInit {
   tenPhimFromLink: any;   // lấy từ link
 
   chiTietLichChieuPhim: any;  // lấy chi tiết lịch chiếu 1 phim từ API
-
+ 
   constructor(
     private activatedRoute: ActivatedRoute
   ) { }

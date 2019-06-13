@@ -28,7 +28,7 @@ export class ItemPhimComponent implements OnInit {
   */
   xemChiTiet() {
     this.router.navigate(
-      ['/chi-tiet-phim/', this.singlePhim.MaPhim],
+      ['/home/danh-sach-phim/chi-tiet-phim/', this.singlePhim.MaPhim],
       {
         queryParams: {tenPhim: this.singlePhim.TenPhim}
       }
