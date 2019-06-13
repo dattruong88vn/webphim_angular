@@ -1,0 +1,77 @@
+.modal {
+  .modal-dialog {
+    .modal-content {
+      .modal-header {}
+
+      .modal-body {
+        .modal-body-left {
+          padding: 0 30px;
+
+          div {
+            margin: 10px 0;
+            font-size: 16px;
+          }
+        }
+
+        .modal-body-right {
+          img {
+            width: 100%;
+            height: auto;
+            padding: 0;
+          }
+        }
+      }
+
+      .modal-footer {}
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .modal {
+    .modal-dialog {
+      .modal-content {
+        .modal-header {}
+
+        .modal-body {
+          .modal-body-left {
+
+            div {
+            }
+          }
+
+          .modal-body-right {
+            img {}
+          }
+        }
+
+        .modal-footer {}
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .modal {
+    .modal-dialog {
+      .modal-content {
+        .modal-header {}
+
+        .modal-body {
+          .modal-body-left {
+
+            div {
+              font-size: 18px;
+            }
+          }
+
+          .modal-body-right {
+            img {}
+          }
+        }
+
+        .modal-footer {}
+      }
+    }
+  }
+}

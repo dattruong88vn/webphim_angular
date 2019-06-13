@@ -1,0 +1,37 @@
+<!-- Modal Xem nhanh thông tin, click từ item phim -->
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">{{chiTietPhimFromShareStoreService.TenPhim}}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-8 modal-body-left">
+            <div>
+              {{chiTietPhimFromShareStoreService.MoTa}}
+            </div>
+            <div>
+              <a [href]="chiTietPhimFromShareStoreService.Trailer">Xem trailer...</a>
+            </div>
+          </div>
+          <div class="col-4 modal-body-right">
+            <img [src]="chiTietPhimFromShareStoreService.HinhAnh" alt="">
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>

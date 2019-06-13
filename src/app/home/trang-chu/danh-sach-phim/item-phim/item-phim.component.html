@@ -1,8 +1,27 @@
-<div class="card itemPhimCard">
-  <img class="card-img-top itemPhimImg" [src]="singlePhim.HinhAnh" alt="Card image" style="width:100%">
-  <div class="card-body">
-    <h4 class="card-title">{{ singlePhim.TenPhim.length > 22 ?  (singlePhim.TenPhim | slice:0:22) + '...' : singlePhim.TenPhim }}</h4>
-    <!-- <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p> -->
-    <a href="#" class="btn btn-primary">See Profile</a>
+<div style="position: relative">
+  <div class="card itemPhimCard">
+    <div class="card-image" data-toggle="modal" data-target="#myModal" (click)='xemNhanh()'>
+
+      <img class="card-img-top itemPhimImg" [src]="singlePhim.HinhAnh" alt="Card image" style="width:100%">
+
+      <!-- rating -->
+      <div class="ratingPhim d-flex align-items-center">
+        <img src="./../../../../../assets/img/icon/star1.png" alt="star">
+        <p>{{singlePhim.DanhGia}}</p>
+      </div>
+
+      <!-- Hover Card -->
+      <div class="card-hover"></div>
+    </div>
+
+    <div class="card-body d-flex align-items-center">
+      <div class="card-title title-phim">{{ (singlePhim.TenPhim.length > 18) ? (singlePhim.TenPhim | slice:0:18) + '...' : (singlePhim.TenPhim) }}</div>
+      <!-- <div class="card-title title-phim">{{ singlePhim.TenPhim  }}</div> -->
+
+      <!-- button đặt vé -->
+      <button href="#" class="btn datVe-button">MUA VÉ</button>
+    </div>
+
+
   </div>
 </div>

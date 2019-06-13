@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PhimService } from 'src/app/core/phim-service.service';
+import { PhimService } from 'src/app/core/services/phim-service.service';
 
 @Component({
   selector: 'app-danh-sach-phim',
