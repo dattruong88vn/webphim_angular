@@ -1,8 +1,9 @@
+@import "./../../_scss/variables.scss";
+@import "./../../_scss/mixin.scss";
+
 .myMenu {
   width: 100%;
   z-index: 9;
-  // background-color: rgba(255, 255, 255, .95);
-  // box-shadow: 0 0 15px rgba(0, 0, 0, .3);
 
   .menu-container {
     .navbar {
@@ -32,8 +33,7 @@
         .menu-right {
           li {
             a {
-              font-size: 13px;
-              color: #fff;
+              @include text ($color-white, $fs-2, $fw-0);
             }
           }
         }
@@ -74,7 +74,7 @@
                     top: 50%;
                     transform: translateY(-50%);
                     width: 2px;
-                    background-color: #9b9b9b;
+                    background-color: $color-grey-1;
                   }
                 }
               }

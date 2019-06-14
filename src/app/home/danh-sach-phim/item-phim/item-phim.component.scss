@@ -1,3 +1,6 @@
+@import "./../../../_scss/variables.scss";
+@import "./../../../_scss/mixin.scss";
+
 .itemPhimCard {
   border: unset;
   margin-bottom: 10px;
@@ -16,7 +19,7 @@
       position: absolute;
       top: 5px;
       right: 5px;
-      background-color: rgba(17, 27, 54, 0.5);
+      background-color: $color-black-1;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -24,9 +27,10 @@
       border-radius: 3px;
 
       p {
-        font-size: 18px;
+        @include text($color-white, $fs-1, $fw-0);
+        // font-size: $fs-1;
+        // color: white;
         margin: 0;
-        color: white;
         margin-left: 5px;
       }
 
@@ -41,7 +45,7 @@
       top: 0;
       width: 0;
       height: 0;
-      background-color: rgba(17, 27, 54, 0.5);
+      background-color: $color-black-1;
     }
   }
 
@@ -51,8 +55,7 @@
     position: relative; //Định vị button
 
     .title-phim {
-      font-weight: bold;
-      font-size: 13px;
+      @include text($color-black, $fs-2, $fw-1);
     }
 
     .datVe-button {
@@ -61,15 +64,13 @@
       width: 100%;
       top: 10%;
       left: 0;
-      background-color: #FB4226;
-      color: white;
-      font-size: 12px;
+      background-color: $color-red-1;
+      @include text ($color-white, $fs-3, $fw-0);
 
       &:hover {
-        background-color: white;
-        color: #FB4226;
-        border: 1px solid #FB4226;
-        font-weight: bold;
+        background-color: $color-white;
+        border: 1px solid $color-red-1;
+        @include text ($color-red-1, $fs-3, $fw-1);
       }
 
     }
@@ -133,8 +134,6 @@
       .title-phim {}
 
       .datVe-button {
-        top: 20%;
-        font-size: 18px;
       }
     }
   }
@@ -150,7 +149,14 @@
 
     .card-body {
       .title-phim {
-        font-size: 15px;
+        font-size: $fs-4;
+      }
+      .datVe-button {
+        top: 20%;
+        font-size: $fs-1;
+        &:hover {
+          @include text ($color-red-1, $fs-1, $fw-1);
+        }
       }
     }
   }

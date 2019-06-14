@@ -1,3 +1,6 @@
+@import "./../../_scss/variables.scss";
+@import "./../../_scss/mixin.scss";
+
 .modal {
   .modal-dialog {
     .modal-content {
@@ -9,16 +12,19 @@
 
           div {
             margin: 10px 0;
-            font-size: 16px;
+            font-size: $fs-0;
           }
         }
 
         .modal-body-right {
+          position: relative;
+
           img {
             width: 100%;
             height: auto;
             padding: 0;
           }
+
         }
       }
 
@@ -36,8 +42,7 @@
         .modal-body {
           .modal-body-left {
 
-            div {
-            }
+            div {}
           }
 
           .modal-body-right {
@@ -61,12 +66,13 @@
           .modal-body-left {
 
             div {
-              font-size: 18px;
+              font-size: $fs-1;
             }
           }
 
           .modal-body-right {
             img {}
+
           }
         }
 
