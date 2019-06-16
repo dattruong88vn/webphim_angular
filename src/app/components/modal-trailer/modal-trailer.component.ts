@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ShareStoreService } from 'src/app/core/shared/share-store.service';
-import { ItemPhimComponent } from 'src/app/home/danh-sach-phim/item-phim/item-phim.component';
 
 @Component({
   selector: 'app-modal-trailer',
@@ -8,12 +7,9 @@ import { ItemPhimComponent } from 'src/app/home/danh-sach-phim/item-phim/item-ph
   styleUrls: ['./modal-trailer.component.scss']
 })
 export class ModalTrailerComponent implements OnInit {
-
-  @ViewChild("iframe") iframe: ElementRef;
-
   singlePhimFromShareStore = {};
-  originalLink = '';
-  embedLink = 'https://www.youtube.com/embed/e4op_yl_JXY';
+  trailerLink = '';
+  status = false;
 
   constructor(
     private shareStroreService: ShareStoreService,
@@ -22,13 +18,22 @@ export class ModalTrailerComponent implements OnInit {
   ngOnInit() {
     this.shareStroreService.shareChiTietPhim.subscribe((data: any) => {
       this.singlePhimFromShareStore = data;
-      this.originalLink = data.Trailer;
+      this.status = this.loading(data.Trailer);
     })
   }
 
+  loading(data: string): boolean {
+    if (data === undefined) {
+      return false;
+    }
+    else {
+      this.trailerLink = 'https://www.youtube.com/embed/' +  data.slice(32);
+      return true;
+    }
+  }
+
   stopTrailer() {
-    this.iframe.nativeElement.src = '';
-    this.iframe.nativeElement.src = this.embedLink;
+    this.trailerLink = '';
   }
 
 }

@@ -12,8 +12,10 @@ export class ChiTietSinglePhimComponent implements OnInit {
   maPhimFromLink: any;    // lấy từ link
   tenPhimFromLink: any;   // lấy từ link
 
-  chiTietSinglePhim: any;  // lấy chi tiết lịch chiếu 1 phim từ API
- 
+  chiTietSinglePhim = {};  // lấy chi tiết lịch chiếu 1 phim từ API theo mã phim
+
+
+  hinhAnh = '';
   constructor(
     private activatedRoute: ActivatedRoute,
     private phimService: PhimService
@@ -28,7 +30,7 @@ export class ChiTietSinglePhimComponent implements OnInit {
     // lấy tham số chính
     this.maPhimFromLink = this.activatedRoute.snapshot.paramMap.get("id");
 
-    // lấy tham số trong queryParams
+    // lấy tham số phụ trong queryParams
     this.activatedRoute.queryParams.subscribe((params: any) => {
       this.tenPhimFromLink = params.tenPhim;
     });
@@ -41,6 +43,7 @@ export class ChiTietSinglePhimComponent implements OnInit {
     const url = `QuanLyPhim/LayChiTietPhim?MaPhim=${this.maPhimFromLink}`;
     this.phimService.get(url).subscribe((data:any) => {
       this.chiTietSinglePhim = data;
+      this.hinhAnh = data.HinhAnh;
       console.log(this.chiTietSinglePhim);
     })
   }
