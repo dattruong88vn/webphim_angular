@@ -6,7 +6,6 @@ import { ShareModule } from 'src/app/core/shared/share.module';
 import { DanhSachPhimRoutingModule } from './danh-sach-phim-routing.module';
 import { ChiTietSinglePhimComponent } from './chi-tiet-single-phim/chi-tiet-single-phim.component';
 
-
 @NgModule({
   declarations: [DanhSachPhimComponent, ItemPhimComponent,ChiTietSinglePhimComponent],
   exports: [DanhSachPhimComponent, ItemPhimComponent, ],

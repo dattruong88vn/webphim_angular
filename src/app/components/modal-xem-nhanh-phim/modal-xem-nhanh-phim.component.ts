@@ -13,7 +13,7 @@ export class ModalXemNhanhPhimComponent implements OnInit {
 
   originalLink = 'https://www.youtube.com/embed/';
   embedLink = '';
-
+ 
   viTriCat = 32;
 
   constructor(

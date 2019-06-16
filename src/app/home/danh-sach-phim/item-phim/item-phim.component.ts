@@ -15,11 +15,10 @@ export class ItemPhimComponent implements OnInit {
     private shareChiTietPhim: ShareStoreService,  // đẩy chi tiết phim vào Store --> click Modal
     private router: Router,       // đưa data qua link
   ) { }
+ 
+  ngOnInit() {}
 
-  ngOnInit() {
-  }
-
-  xemNhanh() {
+  xemTrailer() {
     this.shareChiTietPhim.sharingChiTietPhim(this.singlePhim);
   }
 

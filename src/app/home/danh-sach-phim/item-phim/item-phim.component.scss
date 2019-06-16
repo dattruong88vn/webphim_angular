@@ -3,7 +3,6 @@
 
 .itemPhimCard {
   border: unset;
-  margin-bottom: 10px;
 
   .card-image {
     position: relative;
@@ -47,6 +46,17 @@
       height: 0;
       background-color: $color-black-1;
     }
+
+    .card-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: $fs-5;
+      border-radius: 50%;
+      color: $color-white;
+      display: none;
+    }
   }
 
   .card-body {
@@ -84,6 +94,10 @@
         transition: 0.1s ease all;
         width: 100%;
         height: 100%;
+      }
+
+      .card-icon {
+        display: block;
       }
     }
 
@@ -133,8 +147,7 @@
     .card-body {
       .title-phim {}
 
-      .datVe-button {
-      }
+      .datVe-button {}
     }
   }
 }
@@ -145,15 +158,21 @@
       .itemPhimImg {
         height: 270px;
       }
+
+      .card-icon {
+        font-size: $fs-6;
+      }
     }
 
     .card-body {
       .title-phim {
         font-size: $fs-4;
       }
+
       .datVe-button {
         top: 20%;
         font-size: $fs-1;
+
         &:hover {
           @include text ($color-red-1, $fs-1, $fw-1);
         }

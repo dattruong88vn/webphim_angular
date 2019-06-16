@@ -1,0 +1,38 @@
+.modal-content {
+  background: transparent;
+
+  .modal-body {
+    width: unset;
+
+    iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 420px;
+      height: 237px;
+    }
+  }
+}
+
+@media screen and (min-width: 576px) {
+  .modal-content {
+    .modal-body {
+      iframe {
+        width: 560px;
+        height: 315px;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .modal-content {
+    .modal-body {
+      iframe {
+        width: 840px;
+        height: 473px;
+      }
+    }
+  }
+}
