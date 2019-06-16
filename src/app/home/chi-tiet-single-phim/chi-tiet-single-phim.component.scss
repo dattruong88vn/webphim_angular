@@ -1,0 +1,129 @@
+@import './../../_scss/variables.scss';
+@import './../../_scss/mixin.scss';
+
+.chiTietPhim {
+  width: 100%;
+  background: no-repeat center center;
+  background-size: cover;
+  position: relative;
+
+  .full-cover {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $color-black-2;
+  }
+
+  .contain {
+    padding-top: 60px;
+    z-index: 10;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+
+    .phim-top {
+      color: $color-white-1;
+      .phim-top-left {
+        .phim-video {
+          padding: 0;
+          cursor: pointer;
+
+          img {
+            display: none;
+          }
+          .card-hover {
+            position: absolute;
+            top: 0;
+            width: 0;
+            height: 0;
+            background-color: $color-black-1;
+          }
+      
+          .card-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: $fs-5;
+            border-radius: 50%;
+            color: $color-white;
+            display: none;
+          }
+          &:hover {
+            .card-hover {
+              transition: 0.1s ease all;
+              width: 100%;
+              height: 100%;
+            }
+      
+            .card-icon {
+              display: block;
+            }
+          }
+        }
+
+        .phim-info {
+          
+          text-align: left;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          p {
+            letter-spacing: 1.5px;
+            font-size: $fs-7;
+          }
+          h4 {
+            font-size: $fs-8;
+            font-weight: $fw-7;
+          }
+        }
+      }
+
+      .phim-top-right {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        h4 {
+          letter-spacing: 1.5px;
+          font-size: $fs-7;
+        }
+      }
+    }
+
+    .phim-bottom {}
+  }
+}
+
+@media screen and (min-width: 576px) {}
+
+@media screen and (min-width: 768px) {
+  .chiTietPhim {
+    .contain {
+      width: 80%;
+
+      .phim-top {
+        width: 80%;
+        margin: 0 auto;
+        .phim-top-left {
+          .phim-video {
+            img {
+              display: block;
+            }
+          }
+
+          .phim-info {}
+        }
+
+        .phim-top-right {}
+      }
+
+      .phim-bottom {}
+    }
+  }
+}
+
+@media screen and (min-width: 992px) {}
+
+@media screen and (min-width: 1200px) {}

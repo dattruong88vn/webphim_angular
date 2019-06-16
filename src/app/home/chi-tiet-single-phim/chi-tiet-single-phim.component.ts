@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";    // Lấy data từ link
 import { PhimService } from 'src/app/core/services/phim-service.service';  // Lấy data từ API
+import { ShareStoreService } from 'src/app/core/shared/share-store.service';
 
 @Component({
   selector: 'app-chi-tiet-single-phim',
@@ -11,14 +12,17 @@ import { PhimService } from 'src/app/core/services/phim-service.service';  // L�
 export class ChiTietSinglePhimComponent implements OnInit {
   maPhimFromLink: any;    // lấy từ link
   tenPhimFromLink: any;   // lấy từ link
-
   chiTietSinglePhim = {};  // lấy chi tiết lịch chiếu 1 phim từ API theo mã phim
 
+  number: number; //in ra percent trong circle percent
+  danhGia: number; // in ra điểm đánh giá
+  status = false;
+  arrStar = [];
 
-  hinhAnh = '';
   constructor(
     private activatedRoute: ActivatedRoute,
-    private phimService: PhimService
+    private phimService: PhimService,
+    private shareStore: ShareStoreService,
   ) { }
 
   ngOnInit() {
@@ -43,9 +47,25 @@ export class ChiTietSinglePhimComponent implements OnInit {
     const url = `QuanLyPhim/LayChiTietPhim?MaPhim=${this.maPhimFromLink}`;
     this.phimService.get(url).subscribe((data:any) => {
       this.chiTietSinglePhim = data;
-      this.hinhAnh = data.HinhAnh;
+      this.status = this.getPercent(data);
       console.log(this.chiTietSinglePhim);
     })
+  }
+
+  xemTrailer() {
+    this.shareStore.sharingChiTietPhim(this.chiTietSinglePhim);
+  }
+
+  getPercent(data): boolean {
+    if (data === undefined) {
+      return false;
+    }
+    else {
+      this.danhGia = data.DanhGia;
+      this.number = data.DanhGia/5*100;
+      this.arrStar.length = this.danhGia;
+      return true;
+    }
   }
 
 }

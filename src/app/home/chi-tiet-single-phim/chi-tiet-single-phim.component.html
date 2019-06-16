@@ -1,0 +1,65 @@
+<div class="chiTietPhim" [ngStyle]="{ 'background-image': 'url(' + chiTietSinglePhim.HinhAnh + ')'}">
+  <!-- lớp cover màu đen -->
+  <div class="full-cover"></div>
+
+  <!-- Nội dung -->
+  <div class="contain">
+    <!-- Phần hình ảnh, mô tả, thông tin -->
+    <div class="col-12 phim-top">
+      <div class="row">
+
+        <!-- Phần hình ảnh -->
+        <div class="col-12 col-md-6 phim-top-left">
+          <div class="row">
+            <!-- Video -->
+            <div class="col-12 col-md-6 phim-video" data-toggle="modal" data-target="#ModalTrailer"
+              (click)="xemTrailer()">
+              <img class="" [src]="chiTietSinglePhim.HinhAnh" alt="Card image" style="width:100%">
+              <div class="card-hover"></div>
+              <i class="fa fa-play card-icon"></i>
+            </div>
+
+            <!-- Info -->
+            <div class="col-12 col-md-6 phim-info text-left">
+              <p> {{ chiTietSinglePhim.NgayKhoiChieu | date:"dd.MM.yyyy" }} </p>
+              <h4>{{ chiTietSinglePhim.TenPhim | uppercase}}</h4>
+            </div>
+          </div>
+        </div>
+
+        <!-- Phần Đánh Giá -->
+        <div class="col-0 col-md-4 ml-auto phim-top-right" *ngIf='status'>
+          <h4>Đánh giá</h4>
+          <circle-progress 
+            [percent]="number" 
+            [radius]="50" 
+            [outerStrokeWidth]="8" 
+            [innerStrokeWidth]="5"
+            [outerStrokeColor]="'#78C000'" 
+            [innerStrokeColor]="'#C7E596'" 
+            [animation]="true" 
+            [animationDuration]="300"
+            [title]="danhGia"
+            [titleColor]="'#9b9b9b'"
+            [titleFontSize]="'40'"
+            [titleFontWeight]="'500'"
+            [showSubtitle]="false"
+            [showUnits]="false"
+            [lazy]='false'>
+          </circle-progress>
+          <div class="text-center d-flex" >
+            <ng-container *ngFor='let item of arrStar'>
+              <img src="./../../../assets/img/icon/star1.png" alt="">
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- Phần lịch chiếu -->
+    <div class="col-12 phim-bottom"></div>
+  </div>
+</div>
+
+<app-modal-trailer></app-modal-trailer>
+
