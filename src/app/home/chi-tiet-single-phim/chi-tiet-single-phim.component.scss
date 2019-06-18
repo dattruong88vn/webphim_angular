@@ -1,129 +1,338 @@
-@import './../../_scss/variables.scss';
-@import './../../_scss/mixin.scss';
+@import "./../../_scss/variables.scss";
+@import "./../../_scss/mixin.scss";
 
 .chiTietPhim {
   width: 100%;
-  background: no-repeat center center;
-  background-size: cover;
+  background: repeat center center;
   position: relative;
+  background-color: $color-black-2;
+  // opacity: 0.8;
 
-  .full-cover {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: $color-black-2;
-  }
+  // .full-cover {
+  //   position: absolute;
+  //   top: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   background-color: $color-black-2;
+  // }
+  .phim-top {
+    background-image: linear-gradient(transparent, $color-grey-2);
+    .contain {
+      padding-top: 60px;
+      z-index: 10;
+      width: 90%;
+      margin: auto;
+      text-align: center;
 
-  .contain {
-    padding-top: 60px;
-    z-index: 10;
-    width: 90%;
-    margin: auto;
-    text-align: center;
+      .phim-top-content {
+        color: $color-white-1;
+        .phim-top-left {
+          .phim-video {
+            padding: 0;
+            cursor: pointer;
 
-    .phim-top {
-      color: $color-white-1;
-      .phim-top-left {
-        .phim-video {
-          padding: 0;
-          cursor: pointer;
-
-          img {
-            display: none;
-          }
-          .card-hover {
-            position: absolute;
-            top: 0;
-            width: 0;
-            height: 0;
-            background-color: $color-black-1;
-          }
-      
-          .card-icon {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: $fs-5;
-            border-radius: 50%;
-            color: $color-white;
-            display: none;
-          }
-          &:hover {
-            .card-hover {
-              transition: 0.1s ease all;
-              width: 100%;
-              height: 100%;
+            img {
+              display: none;
             }
-      
+            .card-hover {
+              position: absolute;
+              top: 0;
+              width: 0;
+              height: 0;
+              background-color: $color-black-1;
+            }
+
             .card-icon {
-              display: block;
+              font-size: 50px;
+              line-height: 100px;
+            }
+            &:hover {
+              .card-hover {
+              }
+
+              .card-icon {
+              }
+            }
+          }
+
+          .phim-info {
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 100px;
+            p {
+              letter-spacing: 1.5px;
+              font-size: $fs-1;
+              margin: 0;
+            }
+            h4 {
+              font-size: $fs-9;
+              font-weight: $fw-7;
             }
           }
         }
 
-        .phim-info {
-          
-          text-align: left;
-          display: flex;
+        .phim-top-right {
+          display: none;
           flex-direction: column;
+          align-items: center;
           justify-content: center;
-          p {
+          h4 {
             letter-spacing: 1.5px;
             font-size: $fs-7;
           }
-          h4 {
-            font-size: $fs-8;
-            font-weight: $fw-7;
-          }
-        }
-      }
-
-      .phim-top-right {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        h4 {
-          letter-spacing: 1.5px;
-          font-size: $fs-7;
         }
       }
     }
-
-    .phim-bottom {}
+  }
+  .phim-bottom {
+    background-color: $color-grey-2;
+    padding: 100px 0;
+    .phim-bottom-content {
+      width: 90%;
+      margin: 0 auto;
+      .phim-tab {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .nav {
+          .nav-item {
+            margin: 0 10px;
+            &:hover a {
+              font-size: $fs-1;
+            }
+            .nav-link {
+              color: $color-white;
+              font-size: $fs-4;
+              transition: 0.5s;
+              &.active {
+                color: $color-red-1;
+              }
+            }
+            .nav-link {
+            }
+          }
+        }
+        .tab-content {
+          color: $color-white;
+          width: 90%;
+          #ThongTin {
+            .myTable {
+              table {
+                color: white;
+                background-color: transparent;
+                tr {
+                  td {
+                    border: none;
+                  }
+                }
+              }
+            }
+            .myContent {
+              padding: 12px;
+              p {
+                font-size: $fs-4;
+              }
+            }
+          }
+          #DatVe {
+            th {
+              font-size: $fs-4;
+            }
+            table td {
+              vertical-align: unset !important;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
-@media screen and (min-width: 576px) {}
+@media screen and (min-width: 576px) {
+}
 
 @media screen and (min-width: 768px) {
   .chiTietPhim {
-    .contain {
-      width: 80%;
-
-      .phim-top {
+    background: no-repeat center center;
+    background-size: cover;
+    .phim-top {
+      .contain {
         width: 80%;
-        margin: 0 auto;
-        .phim-top-left {
-          .phim-video {
-            img {
-              display: block;
+
+        .phim-top-content {
+          width: 80%;
+          margin: 0 auto;
+          .phim-top-left {
+            .phim-video {
+              img {
+                display: block;
+              }
+              .card-icon {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: $fs-5;
+                border-radius: 50%;
+                color: $color-white;
+                display: none;
+              }
+              &:hover {
+                .card-hover {
+                  transition: 0.1s ease all;
+                  width: 100%;
+                  height: 100%;
+                }
+
+                .card-icon {
+                  display: block;
+                }
+              }
+            }
+
+            .phim-info {
+              margin-top: unset;
+              p {
+                letter-spacing: 1.5px;
+                font-size: $fs-7;
+              }
+              h4 {
+                font-size: $fs-8;
+                font-weight: $fw-7;
+              }
             }
           }
 
-          .phim-info {}
+          .phim-top-right {
+            display: flex;
+          }
         }
-
-        .phim-top-right {}
       }
+    }
+    .phim-bottom {
+      .phim-bottom-content {
+        width: 80%;
+        .phim-tab {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          .nav {
+            .nav-item {
+              margin: 0 10px;
+              &:hover a {
+                font-size: $fs-8;
+              }
+              .nav-link {
+                font-size: $fs-7;
+                &.active {
+                }
+              }
+              .nav-link {
+              }
+            }
+          }
+          .tab-content {
+            width: 100%;
+            #ThongTin {
+              .myTable {
+                padding-right: 5%;
+                table {
+                  tr {
+                    td {
+                    }
+                  }
+                }
 
-      .phim-bottom {}
+                .myContent {
+                  p {
+                    font-size: $fs-0;
+                  }
+                }
+              }
+            }
+            #DatVe {
+              th {
+                font-size: $fs-1;
+              }
+              table td {
+              }
+              .gioChieu {
+                @include text($color-white, $fs-7, $fw-0);
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
 
-@media screen and (min-width: 992px) {}
+@media screen and (min-width: 992px) {
+  .chiTietPhim {
+    .phim-top {
+      .contain {
+        .phim-top-content {
+          .phim-top-left {
+            .phim-video {
+              img {
+              }
+              .card-icon {
+              }
+              &:hover {
+                .card-hover {
+                }
 
-@media screen and (min-width: 1200px) {}
+                .card-icon {
+                }
+              }
+            }
+
+            .phim-info {
+              p {
+              }
+              h4 {
+              }
+            }
+          }
+
+          .phim-top-right {
+          }
+        }
+      }
+    }
+    .phim-bottom {
+      .phim-bottom-content {
+        width: 70%;
+        .phim-tab {
+          .nav {
+            .nav-item {
+              &:hover a {
+              }
+              .nav-link {
+                &.active {
+                }
+              }
+              .nav-link {
+              }
+            }
+          }
+          .tab-content {
+            .myTable {
+              padding-right: 10%;
+            }
+            .myContent {
+              span {
+              }
+              p {
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

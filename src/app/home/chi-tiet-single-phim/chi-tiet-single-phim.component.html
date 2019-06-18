@@ -1,65 +1,147 @@
-<div class="chiTietPhim" [ngStyle]="{ 'background-image': 'url(' + chiTietSinglePhim.HinhAnh + ')'}">
+<div class="chiTietPhim" [ngStyle]="{ 'background-image': 'url(' +
+  chiTietSinglePhim.HinhAnh + ')'}">
   <!-- lớp cover màu đen -->
-  <div class="full-cover"></div>
+  <!-- <div class="full-cover"></div> -->
 
-  <!-- Nội dung -->
-  <div class="contain">
-    <!-- Phần hình ảnh, mô tả, thông tin -->
-    <div class="col-12 phim-top">
-      <div class="row">
+  <!-- Nội dung top -->
+  <div class="phim-top">
+    <div class="contain">
+      <!-- Phần hình ảnh, mô tả, thông tin -->
+      <div class="phim-top-content">
+        <div class="row">
+          <!-- Phần hình ảnh -->
+          <div class="col-12 col-md-6 phim-top-left">
+            <div class="row">
+              <!-- Video -->
+              <div class="col-12 col-md-6 phim-video" data-toggle="modal"
+                data-target="#ModalTrailer"
+                (click)="xemTrailer()">
+                <img class="" [src]="chiTietSinglePhim.HinhAnh" alt="Card image"
+                  style="width:100%">
+                <div class="card-hover"></div>
+                <i class="fa fa-play card-icon"></i>
+              </div>
 
-        <!-- Phần hình ảnh -->
-        <div class="col-12 col-md-6 phim-top-left">
-          <div class="row">
-            <!-- Video -->
-            <div class="col-12 col-md-6 phim-video" data-toggle="modal" data-target="#ModalTrailer"
-              (click)="xemTrailer()">
-              <img class="" [src]="chiTietSinglePhim.HinhAnh" alt="Card image" style="width:100%">
-              <div class="card-hover"></div>
-              <i class="fa fa-play card-icon"></i>
-            </div>
-
-            <!-- Info -->
-            <div class="col-12 col-md-6 phim-info text-left">
-              <p> {{ chiTietSinglePhim.NgayKhoiChieu | date:"dd.MM.yyyy" }} </p>
-              <h4>{{ chiTietSinglePhim.TenPhim | uppercase}}</h4>
+              <!-- Info -->
+              <div class="col-12 col-md-6 phim-info text-left">
+                <p> {{ chiTietSinglePhim.NgayKhoiChieu | date:"dd.MM.yyyy" }}
+                </p>
+                <h4>{{ chiTietSinglePhim.TenPhim | uppercase}}</h4>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- Phần Đánh Giá -->
-        <div class="col-0 col-md-4 ml-auto phim-top-right" *ngIf='status'>
-          <h4>Đánh giá</h4>
-          <circle-progress 
-            [percent]="number" 
-            [radius]="50" 
-            [outerStrokeWidth]="8" 
-            [innerStrokeWidth]="5"
-            [outerStrokeColor]="'#78C000'" 
-            [innerStrokeColor]="'#C7E596'" 
-            [animation]="true" 
-            [animationDuration]="300"
-            [title]="danhGia"
-            [titleColor]="'#9b9b9b'"
-            [titleFontSize]="'40'"
-            [titleFontWeight]="'500'"
-            [showSubtitle]="false"
-            [showUnits]="false"
-            [lazy]='false'>
-          </circle-progress>
-          <div class="text-center d-flex" >
-            <ng-container *ngFor='let item of arrStar'>
-              <img src="./../../../assets/img/icon/star1.png" alt="">
-            </ng-container>
+          <!-- Phần Đánh Giá -->
+          <div class="col-0 col-md-4 ml-auto phim-top-right" *ngIf='status'>
+            <h4>Đánh giá</h4>
+            <circle-progress
+              [percent]="number"
+              [radius]="50"
+              [outerStrokeWidth]="8"
+              [innerStrokeWidth]="5"
+              [outerStrokeColor]="'#78C000'"
+              [innerStrokeColor]="'#C7E596'"
+              [animation]="true"
+              [animationDuration]="300"
+              [title]="danhGia"
+              [titleColor]="'#9b9b9b'"
+              [titleFontSize]="'40'"
+              [titleFontWeight]="'500'"
+              [showSubtitle]="false"
+              [showUnits]="false"
+              [lazy]='false'>
+            </circle-progress>
+            <div class="text-center d-flex">
+              <ng-container *ngFor='let item of arrStar'>
+                <img src="./../../../assets/img/icon/star1.png" alt="">
+              </ng-container>
+            </div>
           </div>
         </div>
       </div>
     </div>
- 
-    <!-- Phần lịch chiếu -->
-    <div class="col-12 phim-bottom"></div>
+
+
+
+  </div>
+  <!-- Phần lịch chiếu -->
+  <div class="phim-bottom">
+    <div class="phim-bottom-content">
+      <div class="phim-tab">
+        <!-- Nav pills -->
+        <ul class="nav" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" data-toggle="pill" href="#ThongTin">THÔNG
+              TIN</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="pill" href="#DatVe">LỊCH CHIẾU</a>
+          </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div id="ThongTin" class="container tab-pane active"><br>
+            <div class="row">
+              <div class="col-12 col-md-6 myTable">
+                <table class="table">
+                  <tr>
+                    <td>Ngày phát hành</td>
+                    <td>{{chiTietSinglePhim.NgayKhoiChieu | date:'dd/MM/yyyy'}}</td>
+                  </tr>
+                  <tr>
+                    <td>Đạo diễn</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Diễn viên</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Thể loại</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>Thời lượng</td>
+                    <td>{{ chiTietSinglePhim.LichChieu !== undefined ? chiTietSinglePhim.LichChieu[0].ThoiLuong : 0}} phút</td>
+                  </tr>
+                  <tr>
+                    <td>Quốc gia</td>
+                    <td></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="col-12 col-md-6 myContent">
+                <p>{{chiTietSinglePhim.MoTa}}</p>
+              </div>
+            </div>
+          </div>
+          <div id="DatVe" class="container tab-pane fade"><br>
+            <table class="table text-white text-center">
+              <thead>
+                <tr>
+                  <th>STT</th>
+                  <th>Ngày</th>
+                  <th>Suất chiếu</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor='let item of chiTietSinglePhim.LichChieu; let stt = index'>
+                  <tr>
+                    <td>{{stt + 1}}</td>
+                    <td>{{item.NgayChieuGioChieu | date:'dd/MM/yyyy'}}</td>
+                    <td class="gioChieu">
+                      <button class="btn btn-success">{{item.NgayChieuGioChieu | date:'hh:mm'}}</button>
+                    </td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <app-modal-trailer></app-modal-trailer>
-

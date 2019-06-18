@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";    // Lấy data từ link
 import { PhimService } from 'src/app/core/services/phim-service.service';  // Lấy data từ API
 import { ShareStoreService } from 'src/app/core/shared/share-store.service';
@@ -10,6 +10,7 @@ import { ShareStoreService } from 'src/app/core/shared/share-store.service';
 })
 
 export class ChiTietSinglePhimComponent implements OnInit {
+  
   maPhimFromLink: any;    // lấy từ link
   tenPhimFromLink: any;   // lấy từ link
   chiTietSinglePhim = {};  // lấy chi tiết lịch chiếu 1 phim từ API theo mã phim

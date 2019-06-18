@@ -7,6 +7,7 @@ import { DanhSachPhimRoutingModule } from './danh-sach-phim-routing.module';
 import { ChiTietSinglePhimComponent } from '../chi-tiet-single-phim/chi-tiet-single-phim.component';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
+
 @NgModule({
   declarations: [
     DanhSachPhimComponent, 
@@ -27,7 +28,7 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
       outerStrokeColor: "#78C000",
       innerStrokeColor: "#C7E596",
       animationDuration: 300,
-    })
+    }),
   ]
 })
 export class DanhSachPhimModule { }
