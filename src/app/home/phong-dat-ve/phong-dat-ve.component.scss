@@ -1,0 +1,243 @@
+@import "./../../_scss/variables.scss";
+@import "./../../_scss/mixin.scss";
+
+.phong-dat-ve {
+  position: relative;
+  background: transparent;
+
+  .myBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url("./../../../assets/img/background-phong-ve.jpg");
+    /* Add the blur effect */
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+
+    /* Full height */
+    height: 100%;
+    width: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .chiTietPhongVe {
+    width: 95%;
+    background-color: $color-black-3; /* Fallback color */
+    background-color: $color-black-4; /* Black w/opacity/see-through */
+    margin: 0 auto;
+    .content {
+      width: 100%;
+      margin: 0 auto;
+      .content-basic-info {
+        background-color: $color-grey-3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 50px 20px;
+        p {
+          @include text($color-white, $fs-1, $fw-3);
+          text-align: center;
+        }
+        .title {
+          text-align: center;
+          @include text($color-red-1, $fs-7, $fw-1);
+        }
+        .body {
+          margin: 15px 0;
+          & > div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+          }
+          & p {
+            margin: 0;
+            font-weight: $fw-1;
+          }
+          .iconGhe {
+            width: 30px;
+            height: 30px;
+            border: 1px solid white;
+            border-radius: 3px;
+            margin-right: 15px;
+            & + p {
+              color: $color-white;
+            }
+          }
+          .gheTrong {
+            background-color: $color-green;
+          }
+          .gheDaDat {
+            background-color: $color-red;
+          }
+          .gheCouple {
+            background-color: $color-purple;
+          }
+        }
+      }
+      .content-seat {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+        padding: 20px 0;
+        .seat-title {
+          width: 100%;
+
+          h2 {
+            @include text($color-red-1, $fs-10, $fw-3);
+            margin-bottom: 15px;
+          }
+          & > div {
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 40px;
+            background-color: $color-red-1;
+            text-align: center;
+            padding: 5px;
+            @include text($color-white-1, $fs-9, $fw-1);
+          }
+        }
+        .seat-map {
+          width: 100%;
+          .Seats {
+            width: 80%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            .wayInOut {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 576px) {
+}
+@media screen and (min-width: 768px) {
+}
+@media screen and (min-width: 992px) {
+  .phong-dat-ve {
+    .myBackground {
+    }
+
+    .chiTietPhongVe {
+      width: 90%;
+      .content {
+        .content-basic-info {
+          p {
+            @include text($color-white, $fs-1, $fw-3);
+            text-align: center;
+          }
+          .title {
+            text-align: center;
+            @include text($color-red-1, $fs-7, $fw-1);
+          }
+          .body {
+            margin: 15px 0;
+            & > div {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              margin: 10px 0;
+            }
+            & p {
+              margin: 0;
+              font-weight: $fw-1;
+            }
+            .iconGhe {
+              width: 30px;
+              height: 30px;
+              border: 1px solid white;
+              border-radius: 3px;
+              margin-right: 15px;
+              & + p {
+                color: $color-white;
+              }
+            }
+            .gheTrong {
+              background-color: $color-green;
+            }
+            .gheDaDat {
+              background-color: $color-red;
+            }
+            .gheCouple {
+              background-color: $color-purple;
+            }
+          }
+        }
+        .content-seat {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          text-align: center;
+          padding: 50px 0;
+          .seat-title {
+            width: 70%;
+
+            h2 {
+              @include text($color-red-1, $fs-10, $fw-3);
+              margin-bottom: 20px;
+            }
+            & > div {
+              width: 80%;
+              margin: 0 auto;
+              margin-bottom: 40px;
+              background-color: $color-red-1;
+              text-align: center;
+              padding: 3px;
+              @include text($color-white-1, $fs-7, $fw-0);
+            }
+          }
+          .seat-map {
+            .Seats {
+              .wayInOut {
+                display: block;
+                width: 8%;
+                background-color: $color-grey-3;
+                margin: 5px 10px;
+                position: relative;
+                .arrow {
+                  position: absolute;
+                  top: 50%;
+                  left: 50%;
+                  transform: translate(-50%, -50%);
+                  width: 60%;
+                  height: 60%;
+                  background-color: white;
+                  clip-path: polygon(
+                    30% 20%,
+                    50% 0,
+                    70% 20%,
+                    60% 20%,
+                    60% 80%,
+                    70% 80%,
+                    50% 100%,
+                    30% 80%,
+                    40% 80%,
+                    40% 20%
+                  );
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+}

@@ -1,0 +1,35 @@
+@import './../../_scss/variables.scss';
+@import './../../_scss/mixin.scss';
+
+.ghe {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
+    border-radius: 3px;
+    padding: 0;
+    margin: 5px 1px;
+    span {
+        line-height: 25px;
+        text-align: center;
+        @include text ($color-white, $fs-3, $fw-0);
+    }
+}
+
+
+@media screen and (min-width: 576px) {
+    .ghe {
+        width: 35px;
+        height: 35px;
+        padding: 2px;
+        margin: 5px 2px;
+        span {
+            line-height: 31px;
+            text-align: center;
+            @include text ($color-white, $fs-1, $fw-0);
+        }
+    }
+}
+@media screen and (min-width: 768px) {}
+@media screen and (min-width: 992px) {}
+@media screen and (min-width: 1200px) {}

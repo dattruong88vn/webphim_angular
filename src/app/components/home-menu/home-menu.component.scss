@@ -3,7 +3,7 @@
 
 .myMenu {
   width: 100%;
-  z-index: 9;
+  z-index: 100;
 
   .menu-container {
     .navbar {
@@ -14,7 +14,8 @@
         }
       }
 
-      .navbar-toggler {}
+      .navbar-toggler {
+      }
 
       .navbar-collapse {
         .menu-center {
@@ -24,16 +25,20 @@
             a {
               font-size: 14px;
               color: #fff;
-
             }
-
           }
         }
 
         .menu-right {
-          li {
-            a {
-              @include text ($color-white, $fs-2, $fw-0);
+          .nav-item {
+            .nav-link {
+              @include text($color-white, $fs-2, $fw-0);
+            }
+          }
+          .dropdown {
+            .dropdown-menu.show {
+              left: unset;
+              right: 0;
             }
           }
         }
@@ -47,16 +52,18 @@
     .menu-container {
       .navbar {
         .navbar-brand {
-          img {}
+          img {
+          }
         }
 
-        .navbar-toggler {}
+        .navbar-toggler {
+        }
 
         .navbar-collapse {
           .menu-center {
             li {
-              a {}
-
+              a {
+              }
             }
           }
 
@@ -68,7 +75,7 @@
 
                   &::after {
                     position: absolute;
-                    content: '';
+                    content: "";
                     height: 30px;
                     right: -83px;
                     top: 50%;

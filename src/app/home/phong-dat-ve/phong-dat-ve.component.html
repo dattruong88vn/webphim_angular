@@ -1,0 +1,58 @@
+
+<div class="phong-dat-ve">
+  <div class="myBackground"></div>
+  <div class="chiTietPhongVe">
+    <div class="content text-dark">
+      <div class="row">
+        <div class="col-12 col-md-3 content-basic-info">
+          <h3 class="title">{{tenPhimFromLink}}</h3>
+          <p>Ngày chiếu | Suất chiếu</p>
+          <div class="body">
+            <div>
+              <div class="iconGhe gheTrong"></div>
+              <p>GHẾ TRỐNG</p>
+            </div>
+            <div>
+              <div class="iconGhe gheDaDat"></div>
+              <p>GHẾ ĐÃ ĐẶT</p>
+            </div>
+            <div>
+              <div class="iconGhe gheCouple"></div>
+              <p>GHẾ ĐANG CHỌN</p>
+            </div>
+          </div>
+          <p>KHOẢNG CÁCH TỪ MÀN HÌNH ĐẾN HÀNG GHẾ GẦN NHẤT LÀ 3m</p>
+        </div>
+        <div class="col-12 col-md-9 content-seat">
+          <div class="seat-title">
+            <h2>SƠ ĐỒ CHỖ NGỒI</h2>
+            <div>
+              MÀN HÌNH
+            </div>
+          </div>
+          <div class="seat-map">
+            <div class="Seats">
+              <div class="wayInOut">
+                <div class="arrow"></div>
+              </div>
+              <div>
+                <ng-container *ngFor='let item of danhSachGhe, let stt=
+                  index'>
+                  <app-ghe [ghe]="item"></app-ghe>
+                  <p [ngStyle]="{'margin': 0, 'height': 0 }" *ngIf="stt === 7 ||
+                    stt === 15 || stt === 23 || stt === 31 || stt === 39 || stt
+                    === 47">
+                    <br />
+                  </p>
+                </ng-container>
+              </div>
+              <div class="wayInOut">
+                <div class="arrow"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

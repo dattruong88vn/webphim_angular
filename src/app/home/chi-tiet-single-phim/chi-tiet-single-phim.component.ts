@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";    // Lấy data từ link
+import { ActivatedRoute } from "@angular/router";    // Lấy data từ link mã phim
+import { Router } from "@angular/router"; 
 import { PhimService } from 'src/app/core/services/phim-service.service';  // Lấy data từ API
 import { ShareStoreService } from 'src/app/core/shared/share-store.service';
 
@@ -13,7 +14,7 @@ export class ChiTietSinglePhimComponent implements OnInit {
   
   maPhimFromLink: any;    // lấy từ link
   tenPhimFromLink: any;   // lấy từ link
-  chiTietSinglePhim = {};  // lấy chi tiết lịch chiếu 1 phim từ API theo mã phim
+  chiTietSinglePhim = {};  // lấy chi tiết các lịch chiếu 1 phim từ API theo mã phim
 
   number: number; //in ra percent trong circle percent
   danhGia: number; // in ra điểm đánh giá
@@ -24,6 +25,7 @@ export class ChiTietSinglePhimComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private phimService: PhimService,
     private shareStore: ShareStoreService,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -49,7 +51,7 @@ export class ChiTietSinglePhimComponent implements OnInit {
     this.phimService.get(url).subscribe((data:any) => {
       this.chiTietSinglePhim = data;
       this.status = this.getPercent(data);
-      console.log(this.chiTietSinglePhim);
+      
     })
   }
 
@@ -69,4 +71,12 @@ export class ChiTietSinglePhimComponent implements OnInit {
     }
   }
 
+  // Truyền chi tiết lịch chiếu qua Link
+  datVe = (item) => {
+    //truyền qua link MaLichChieu
+    this.router.navigate(
+      ['/home/dat-ve/', item.MaLichChieu],
+      {queryParams: {'suatChieu': this.tenPhimFromLink}}
+    )
+  }
 }

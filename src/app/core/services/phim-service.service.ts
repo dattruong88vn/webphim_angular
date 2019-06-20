@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
 import { environment } from '../../../environments/environment'
@@ -19,7 +19,9 @@ export class PhimService {
     return this.http.get(api + url).pipe(
       tap(
         () => { },
-        catchError(err => { return this.handleError(err); })
+        catchError((err: HttpErrorResponse) => { 
+          return this.handleError(err); 
+        })
       )
     );
   }

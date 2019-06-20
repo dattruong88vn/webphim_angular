@@ -17,5 +17,6 @@ export class ShareStoreService {
     this.chiTietPhim.next(phim);
   }
 
+
 }
  
