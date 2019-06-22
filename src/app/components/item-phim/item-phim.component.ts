@@ -11,6 +11,8 @@ export class ItemPhimComponent implements OnInit {
 
   @Input() singlePhim;    // Input từ component DanhSachPhim
 
+  statusButtonDatVe = true;
+
   constructor(
     private shareChiTietPhim: ShareStoreService,  // đẩy chi tiết phim vào Store --> click Modal
     private router: Router,       // đưa data qua link
@@ -34,6 +36,10 @@ export class ItemPhimComponent implements OnInit {
         }
       }
     )
+  }
+
+  changeStatusBtn = (status) => {
+    this.statusButtonDatVe = !status;
   }
 
 }

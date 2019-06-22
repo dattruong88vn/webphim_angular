@@ -3,17 +3,21 @@
 
 .itemPhimCard {
   border: unset;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
 
   .card-image {
     position: relative;
     cursor: pointer;
+    flex: 1 1 auto;
 
     .itemPhimImg {
-      max-width: 100%;
-      height: 200px;
-
+      height: 100%;
+      width: 100%;
     }
-
     .ratingPhim {
       position: absolute;
       top: 5px;
@@ -22,11 +26,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 5px 10px;
+      padding: 2px 8px;
       border-radius: 3px;
 
       p {
-        @include text($color-white, $fs-1, $fw-0);
+        @include text($color-white, $fs-3, $fw-0);
         // font-size: $fs-1;
         // color: white;
         margin: 0;
@@ -34,8 +38,8 @@
       }
 
       img {
-        width: 15px;
-        height: 15px;
+        width: 8px;
+        height: 8px;
       }
     }
 
@@ -60,36 +64,38 @@
   }
 
   .card-body {
-    display: none;
+    flex: unset;
     padding: 10px 5px;
-    position: relative; //Định vị button
-
-    .title-phim {
-      @include text($color-black, $fs-2, $fw-1);
-    }
-
-    .datVe-button {
-      display: none; // bình thường ẩn button đặt vé
-      position: absolute;
-      width: 100%;
-      top: 10%;
-      left: 0;
-      background-color: $color-red-1;
-      @include text ($color-white, $fs-3, $fw-0);
-
-      &:hover {
-        background-color: $color-white;
-        border: 1px solid $color-red-1;
-        @include text ($color-red-1, $fs-3, $fw-1);
+    height: 60px;
+    padding: 0;
+    .body-info {
+      display: flex;
+      align-items: flex-start;
+      @include text($color-red-1, $fs-2, $fw-1);
+      margin-top: 5px;
+      .title-phim {
+        margin: 0 5px;
       }
-
+      .datVe-button {
+        display: none;
+        width: 100%;
+        text-align: center;
+        color: $color-red-1;
+        cursor: pointer;
+        background-image: linear-gradient(to right, #c00000, #ff7752);
+        @include text($color-white, $fs-3, $fw-0);
+        
+        &:hover {
+          @include text($color-black, $fs-3, $fw-0);
+          text-shadow:  1px 1px 2px $color-black, 0 0 1em $color-grey-2, 0 0 0.2em $color-black-4;
+        }
+      }
     }
   }
 
   // Khi hover itemPhimCard
   &:hover {
     .card-image {
-
       .card-hover {
         transition: 0.1s ease all;
         width: 100%;
@@ -102,29 +108,51 @@
     }
 
     .card-body {
-
-      .title-phim {
-        display: none;
-      }
-
-      .datVe-button {
-        display: block;
+      .body-info {
+        .title-phim {
+          display: none;
+        }
+        .datVe-button {
+          display: block;
+        }
       }
     }
   }
-
 }
 
 @media screen and (min-width: 576px) {
   .itemPhimCard {
     .card-image {
-      .itemPhimImg {}
+      .itemPhimImg {
+      }
+      .ratingPhim {
+        top: 8px;
+        right: 8px;
+        padding: 2px 8px;
+
+        p {
+          @include text($color-white, $fs-4, $fw-0);
+          // font-size: $fs-1;
+          // color: white;
+          margin: 0;
+          margin-left: 5px;
+        }
+
+        img {
+          width: 12px;
+          height: 12px;
+        }
+      }
     }
 
     .card-body {
-      display: inline-block;
-
-      .title-phim {}
+      .body-info {
+        .title-phim {
+          @include text($color-red-1, $fs-4, $fw-1);
+        }
+        .datVe-button {
+        }
+      }
     }
   }
 }
@@ -132,22 +160,37 @@
 @media screen and (min-width: 768px) {
   .itemPhimCard {
     .card-image {
-      .itemPhimImg {}
-
+      .itemPhimImg {
+      }
       .ratingPhim {
-        top: 10px;
-        right: 10px;
+        padding: 4px 10px;
 
-        p {}
+        p {
+          @include text($color-white, $fs-0, $fw-0);
+          // font-size: $fs-1;
+          // color: white;
+          margin: 0;
+          margin-left: 7px;
+        }
 
-        img {}
+        img {
+          width: 15px;
+          height: 15px;
+        }
       }
     }
-
     .card-body {
-      .title-phim {}
-
-      .datVe-button {}
+      .body-info {
+        .title-phim {
+          @include text($color-red-1, $fs-4, $fw-1);
+        }
+        .datVe-button {
+          font-size: $fs-4;
+          &:hover {
+            font-size: $fs-4;
+          }
+        }
+      }
     }
   }
 }
@@ -156,7 +199,6 @@
   .itemPhimCard {
     .card-image {
       .itemPhimImg {
-        height: 270px;
       }
 
       .card-icon {
@@ -165,16 +207,15 @@
     }
 
     .card-body {
-      .title-phim {
-        font-size: $fs-4;
-      }
-
-      .datVe-button {
-        top: 20%;
-        font-size: $fs-1;
-
-        &:hover {
-          @include text ($color-red-1, $fs-1, $fw-1);
+      .body-info {
+        .title-phim {
+          @include text($color-red-1, $fs-0, $fw-1);
+        }
+        .datVe-button {
+          font-size: $fs-0;
+          &:hover {
+            font-size: $fs-0;
+          }
         }
       }
     }
@@ -185,12 +226,10 @@
   .itemPhimCard {
     .card-image {
       .itemPhimImg {
-        height: 350px;
       }
     }
 
     .card-body {
-      .title-phim {}
     }
   }
 }

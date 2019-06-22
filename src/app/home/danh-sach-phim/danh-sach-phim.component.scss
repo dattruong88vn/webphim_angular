@@ -1,6 +1,23 @@
-.myDanhSachPhim {}
+.myDanhSachPhim {
+  .itemPhim {
+    margin-bottom: 10px;
+    padding: 0 2px;
+  }
+}
 
-@media screen and (min-width:768px) {
-    .myDanhSachPhim {
+@media screen and (min-width: 576px) {
+  .myDanhSachPhim {
+    width: 80%;
+    .itemPhim {
     }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .myDanhSachPhim {
+    .itemPhim {
+      margin-bottom: 20px;
+      padding: 0 5px;
+    }
+  }
 }
