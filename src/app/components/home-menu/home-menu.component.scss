@@ -4,13 +4,18 @@
 .myMenu {
   width: 100%;
   z-index: 100;
+  background-color: $color-white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  position: relative;
 
   .menu-container {
     .navbar {
+      padding: $pd-sm;
       .navbar-brand {
         img {
-          width: 50px;
-          height: 50px;
+          width: 40px;
+          height: 40px;
         }
       }
 
@@ -18,27 +23,39 @@
       }
 
       .navbar-collapse {
-        .menu-center {
-          margin: 0 auto;
-
-          li {
-            a {
-              font-size: 14px;
-              color: #fff;
-            }
-          }
-        }
-
+        .menu-center,
         .menu-right {
           .nav-item {
             .nav-link {
-              @include text($color-white, $fs-2, $fw-0);
+              text-align: center;
+              @include text($color-black-5, $fs-0, $fw-4);
+            }
+            &:hover {
+              background-color: $color-white-1;
+            }
+            &:active {
+              .nav-link {
+                @include text($color-red-1, $fs-0, $fw-1);
+              }
             }
           }
-          .dropdown {
+        }
+        .menu-center {
+        }
+        .menu-right {
+          margin-left: auto;
+          .nav-item.dropdown {
             .dropdown-menu.show {
               left: unset;
               right: 0;
+              .dropdown-item {
+                &:hover {
+                  background-color: $color-white-1;
+                }
+                &:active {
+                  @include text($color-red-1, $fs-0, $fw-1);
+                }
+              }
             }
           }
         }
@@ -51,8 +68,11 @@
   .myMenu {
     .menu-container {
       .navbar {
+        padding: $pd-md;
         .navbar-brand {
           img {
+            width: 50px;
+            height: 50px;
           }
         }
 
@@ -60,28 +80,63 @@
         }
 
         .navbar-collapse {
-          .menu-center {
-            li {
-              a {
+          .menu-center,
+          .menu-right {
+            .nav-item {
+              position: relative;
+              margin: 0 5px;
+              .nav-link {
+                @include text($color-black-5, $fs-0, $fw-4);
+              }
+              &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 2px;
+                width: 0;
+                background-color: $color-red-1;
+              }
+              &:hover {
+                &::after {
+                  width: 100%;
+                  transition: 0.2s ease;
+                }
+                background-color: unset;
+                
+              }
+              &:active::after {
+                .nav-link {
+                  @include text($color-red-1, $fs-0, $fw-1);
+                }
               }
             }
           }
 
           .menu-right {
-            li {
-              a {
-                i {
-                  position: relative;
-
-                  &::after {
-                    position: absolute;
-                    content: "";
-                    height: 30px;
-                    right: -83px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    width: 2px;
-                    background-color: $color-grey-1;
+            .nav-item {
+              .nav-link {
+                // i {
+                //   position: relative;
+                //   &::after {
+                //     position: absolute;
+                //     content: "";
+                //     height: 30px;
+                //     right: -103px;
+                //     top: 50%;
+                //     transform: translateY(-50%);
+                //     width: 2px;
+                //     background-color: $color-grey-1;
+                //   }
+                // }
+              }
+            }
+            .nav-item.dropdown {
+              .dropdown-menu.show {
+                .dropdown-item {
+                  &:hover {
+                    background-color: unset;
+                    @include text($color-red-1, $fs-0, $fw-1);
                   }
                 }
               }

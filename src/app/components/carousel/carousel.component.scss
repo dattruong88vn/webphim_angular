@@ -1,0 +1,42 @@
+@import "./../../_scss/variables.scss";
+@import "./../../_scss/mixin.scss";
+
+#myCarousel {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  #myCarousel {
+    display: block;
+    .carousel-indicators {
+      li {
+        transition: 1s ease;
+        width: 15px !important;
+        height: 15px !important;
+        border-radius: 50%;
+        background-color: $color-black-1;
+        margin: 0 5px;
+        &.active {
+          background-color: $color-red;
+        }
+      }
+    }
+
+    .carousel-inner img {
+      width: 100%;
+      height: auto;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 5%;
+      i {
+        font-size: $fs-5;
+        color: $color-white-1;
+        &:active {
+          color: $color-red-1;
+        }
+      }
+    }
+  }
+}

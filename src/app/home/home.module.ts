@@ -4,7 +4,7 @@ import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeMenuComponent } from '../components/home-menu/home-menu.component';
 import { TrangChuComponent } from './trang-chu/trang-chu.component';
-import { CarouselComponent } from './trang-chu/carousel/carousel.component';
+import { CarouselComponent } from '../components/carousel/carousel.component';
 import { DanhSachPhimModule } from './danh-sach-phim/danh-sach-phim.module';
 
 
